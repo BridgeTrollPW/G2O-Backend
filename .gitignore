@@ -1,0 +1,11 @@
+examples/
+waypoints/
+lib/
+Functions.txt
+server.log
+G2O_Server.exe
+items.xml
+mds.xml
+config.xml
+bans.xml
+data.bin

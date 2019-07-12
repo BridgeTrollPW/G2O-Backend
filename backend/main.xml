@@ -1,0 +1,3 @@
+<server>
+	<script src="server/modules/Administration.nut" type="server" />
+</server>
