@@ -3,8 +3,6 @@ Administration <- {}
 class Administration.Commands{
     function handleCommand(pid, cmd, params)
     {
-        print("test");
-
         switch(cmd)
         {
             case "playerlist":

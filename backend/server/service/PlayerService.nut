@@ -2,11 +2,11 @@ class Service.PlayerService {
 
     function getPlayerBySerial(serial) {
         local db = Service.MySQL();
+        local player = null;
         db.exec("CALL getPlayerBySerial('" + serial + "');");
         local result = db.fetch(FETCH_STYLE.ASSOC);
-        db.close();
         if (db.countRows() == 1) {
-            local player = Player();
+            player = Player();
 
             player.id = result.id;
             player.name = result.name;
@@ -16,19 +16,19 @@ class Service.PlayerService {
             player.pos.z = result.pos_z;
 
             Logger.debug("CHECK SERIAL" + player);
-            return player;
-        } else {
-            return null;
         }
+        db.close();
+        return player;
     }
 
     function createPlayer(name, password, serial, macAddress) {
         local db = Service.MySQL();
+        local player = null;
         db.exec("CALL createPlayer('" + name + "', '" + password + "', '" + serial + "', '" + macAddress + "');");
         local result = db.fetch(FETCH_STYLE.ASSOC);
-        db.close();
+
         if (db.countRows() == 1 && result.serial == serial) {
-            local player = Player();
+            player = Player();
 
             player.id = result.id;
             player.name = result.name;
@@ -38,16 +38,16 @@ class Service.PlayerService {
             player.pos.z = result.pos_z;
 
             Logger.debug("CREATE / INSERT" + player);
+            db.close();
             return player;
         }
-        throw AuthException("Player " + serial + " was not successfully created after registration");
+        throw AuthException("Something went wrong", 0);
     }
 
     function savePlayer(serial, x, y, z) {
         local db = Service.MySQL();
         db.exec("CALL savePlayer('" + serial + "', '" + x + "', '" + y + "', '" + z + "');");
         local result = db.fetch(FETCH_STYLE.ASSOC);
-        db.close();
 
         if (db.countRows() == 1 && result.serial == serial) {
             local player = Player();
@@ -60,6 +60,7 @@ class Service.PlayerService {
             player.pos.z = result.pos_z;
 
             Logger.debug("RELOAD/SAVE: " + player);
+            db.close();
             return player;
         }
         throw AuthException("Player " + serial + " was not successfully saved after logout");

@@ -1,9 +1,20 @@
 <server>
+    <!-- Administration -->
     <script src="Administration/Commands.nut" type="server" />
+    <!-- Administration -->
 
+    <!-- Connection -->
     <script src="Connection/Namespace.nut" type="server" />
     <script src="Connection/Authorisation.nut" type="server" />
     <script src="Connection/Dispatcher.nut" type="server" />
+    <!-- Connection -->
 
+    <!-- Startup -->
     <script src="Startup/Startup.nut" type="server" />
+    <!-- Startup -->
+
+    <!-- PlayerChat -->
+    <script src="PlayerChat/Namespace.nut" type="server" />
+    <script src="PlayerChat/Dispatcher.nut" type="server" />
+    <!-- PlayerChat -->
 </server>

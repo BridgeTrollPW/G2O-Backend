@@ -12,8 +12,5 @@ class Startup
         {
             Logger.info("Database connection successful");
         }
-
-        local test = Service.MySQL();
-        test.exec("SELECT * FROM players");
     }
 }
