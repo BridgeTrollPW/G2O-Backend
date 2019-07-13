@@ -1,0 +1,4 @@
+<server>
+    <script src="IException.nut" type="server"/>
+    <script src="SQLException.nut" type="server"/>
+</server>

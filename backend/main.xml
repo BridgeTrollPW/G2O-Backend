@@ -1,3 +1,35 @@
 <server>
-	<script src="server/modules/Administration.nut" type="server" />
+	<!-- Config -->
+	<script src="Config.nut" type="server" />
+
+	<!-- Exception Classes-->
+	<import src="server/model/Exception/exceptions.xml" />
+	<!-- Exception Classes END-->
+
+	<!-- MODELS -->
+	<import src="server/model/models.xml" />
+	<!-- MODELS END -->
+
+	<!-- UTILS -->
+	<import src="server/util/utils.xml" />
+	<!-- UTILS END -->
+
+	<!-- SERVER SERVICES -->
+	<script src="server/service/MySQL.nut" type="server" />
+	<!-- SERVER SERVICES END -->
+
+	<!-- SERVER MODULES -->
+	<script src="server/module/Administration/Commands.nut" type="server" />
+	<script src="server/module/Connection/Dispatcher.nut" type="server" />
+	<script src="server/module/Startup/Startup.nut" type="server" />
+	<!-- SERVER MODULES END -->
+
+	<!-- Main Loop + Event Listeners -->
+	<script src="server/main.nut" type="server" />
+
+	<!-- Client Scripts -->
+	<script src="client/playerlist.nut" type="client" />
+	<script src="client/chat.nut" type="client" />
+	<script src="client/net.nut" type="client" />
+	<!-- Client Scripts End -->
 </server>
