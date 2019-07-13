@@ -1,13 +1,11 @@
-Connection <- {}
-
+Connections <- {};
 class Connection.Dispatcher {
-    pid = null;
-    connectedClients = {};
+    auth = null;
+    constructor() {
+        auth = Connection.Authorisation();
+    }
 
-    constructor() {}
-
-    function buildClient(pid)
-    {
+    function buildClient(pid) {
         local temp = Client();
         temp.pid = pid;
         temp.ip = getPlayerIP(pid);
@@ -17,38 +15,31 @@ class Connection.Dispatcher {
         return temp;
     }
 
-    // onPlayerJoin(pid) -> Event Callback
-    function clientJoin(pid)
-    {
-        connectedClients.pid <- buildClient(pid);
-        sendMessageToAll(0, 255, 0, connectedClients.pid.name + " connected to the server.");
-        //local ClientService = Service.ClientService();
-        //ClientService.getUserBySerial(connectedClients.serial);
+// onPlayerJoin(pid) -> Event Callback
+    function clientJoin(pid) {
+        auth.login(pid);
     }
 
-    // onPlayerDisconnect(pid, reason) -> Event Callback
-    function clientLeave(pid, reason)
-    {
-        local client = connectedClients.pid;
-        delete connectedClients.pid;
-        switch (reason)
-        {
-	        case DISCONNECTED:
-	            sendMessageToAll(255, 0, 0, client.name + " disconnected from the server.");
-	        	break;
+// onPlayerDisconnect(pid, reason) -> Event Callback
+    function clientLeave(pid, reason) {
+        local player = Connections.pid;
+        auth.logout(pid);
+        switch (reason) {
+            case DISCONNECTED:
+                sendMessageToAll(255, 0, 0, player.name + " disconnected from the server.");
+                break;
 
-	        case LOST_CONNECTION:
-	        	sendMessageToAll(255, 0, 0, client.name + " lost connection with the server.");
-	        	break;
+            case LOST_CONNECTION:
+                sendMessageToAll(255, 0, 0, player.name + " lost connection with the server.");
+                break;
 
-	        case HAS_CRASHED:
-	        	sendMessageToAll(255, 0, 0, client.name + " has crashed.");
-	        	break;
-	    }
+            case HAS_CRASHED:
+                sendMessageToAll(255, 0, 0, player.name + " has crashed.");
+                break;
+        }
     }
 
-    function getClientList()
-    {
-        return connectedClients;
+    function getClientList() {
+        return Connections;
     }
 }

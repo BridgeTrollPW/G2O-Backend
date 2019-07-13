@@ -1,0 +1,9 @@
+<server>
+    <script src="Administration/Commands.nut" type="server" />
+
+    <script src="Connection/Namespace.nut" type="server" />
+    <script src="Connection/Authorisation.nut" type="server" />
+    <script src="Connection/Dispatcher.nut" type="server" />
+
+    <script src="Startup/Startup.nut" type="server" />
+</server>

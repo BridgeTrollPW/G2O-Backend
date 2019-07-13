@@ -7,7 +7,7 @@ class Startup
         local connected = DatabaseConnection.check();
         if(!connected)
         {
-
+            Logger.error("Database connection was not established");
         } else
         {
             Logger.info("Database connection successful");

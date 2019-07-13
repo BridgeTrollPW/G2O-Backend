@@ -1,5 +1,3 @@
-Service <- {}
-
 enum FETCH_STYLE {
     ROW,
     ASSOC

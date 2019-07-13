@@ -15,13 +15,11 @@
 	<!-- UTILS END -->
 
 	<!-- SERVER SERVICES -->
-	<script src="server/service/MySQL.nut" type="server" />
+	<import src="server/service/services.xml" />
 	<!-- SERVER SERVICES END -->
 
 	<!-- SERVER MODULES -->
-	<script src="server/module/Administration/Commands.nut" type="server" />
-	<script src="server/module/Connection/Dispatcher.nut" type="server" />
-	<script src="server/module/Startup/Startup.nut" type="server" />
+	<import src="server/module/modules.xml" />
 	<!-- SERVER MODULES END -->
 
 	<!-- Main Loop + Event Listeners -->
