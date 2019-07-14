@@ -28,10 +28,12 @@ local ELabelPassword = GUI.Draw(anx(PADDING_LEFT + 0), any(PADDING_TOP + 70), "P
 local EInputPassword = GUI.Input(anx(PADDING_LEFT + 0), any(PADDING_TOP + 90), anx(380), any(25), "DLG_CONVERSATION.TGA", "FONT_OLD_20_WHITE_HI.TGA", Input.Password, Align.Left, "", 0, WLogin);
 EInputPassword.maxLetters = 15;
 
-local EButtonLogin = GUI.Button(anx(175), any(PADDING_TOP + 130), anx(50), any(25), "INV_SLOT_FOCUS.TGA", "Login", WLogin)
+local EButtonLogin = GUI.Button(anx(PADDING_LEFT + 0), any(PADDING_TOP + 170), anx(80), any(25), "INV_SLOT_FOCUS.TGA", "Login", WLogin);
+local EButtonRegister = GUI.Button(anx(310), any(PADDING_TOP + 170), anx(80), any(25), "INV_SLOT_FOCUS.TGA", "Register", WLogin);
+
+local ELabelHelper = GUI.Draw(anx(PADDING_LEFT + 0), any(PADDING_TOP + 130), "", WLogin);
 
 addEventHandler("onInit", function() {
-    ETextWelcome.setVisible(true);
     enableEvent_Render(true);
     showPlayerStatus(false);
     enable_NicknameId(true);
@@ -48,22 +50,37 @@ addEventHandler("onInit", function() {
 
 });
 
+addEventHandler(Network.Event.PlayerLoginFailed, function(packet) {
+    print("Network.Event.PlayerLoginFailed");
+    ELabelHelper.setVisible(true);
+    ELabelHelper.setText(packet.readString());
+    ELabelHelper.setColor(255,0,0);
+});
+addEventHandler(Network.Event.PlayerLoginSuccess, function(packet) {
+    print("Network.Event.PlayerLoginSuccess");
+    ELabelHelper.setVisible(true);
+    ELabelHelper.setText(packet.readString());
+    ELabelHelper.setColor(0,255,0);
+    Camera.setTargetPlayer(heroId);
+    Camera.enableMovement(true);
+    Camera.modeChangeEnabled = true;
+    WLogin.setVisible(false);
+});
+
 addEventHandler("GUI.onClick", function(self) {
     switch (self) {
         case EButtonLogin:
         /**
          * Do Username validation client side
          */
-            //WLogin.setVisible(false);
-            local ELabelLoading = GUI.Draw(anx(0), any(0), "Logging in ... Bitte warten", null);
-            ELabelLoading.setVisible(true);
             packet <- Packet();
-            packet.writeUInt8(PackageTypes.Login);
+            packet.writeUInt8(PackageTypes.PlayerLogin);
             local content = EInputNickname.getText() + "&" + sha256(EInputPassword.getText());
             print(content.len());
             packet.writeString(content);
             packet.send(RELIABLE_ORDERED); // sending packet with RELIABLE_ORDERED reliability to server
             print("Packet sent");
+            //EButtonLogin.setDisabled(true);
             break;
     }
 })
@@ -81,17 +98,68 @@ addEventHandler("GUI.onMouseOut", function(self) {
 })
 
 addEventHandler("GUI.onInputInsertLetter", function(element, text) {
-    if (element == textInput) print(text);
 });
 
 addEventHandler("GUI.onInputRemoveLetter", function(element, letter) {
-    if (element == textInput) print(letter);
 });
 
 addEventHandler("GUI.onInputActive", function(element) {
-    if (element == textInput) print("Aktywowano");
 });
 
 addEventHandler("GUI.onInputDeactive", function(element) {
-    if (element == textInput) print("Dezaktywowano");
 });
+
+
+local texture = GUI.Texture(0, 0, 2048, 2048, "INV_TITEL.TGA")
+texture.setScaling(true)
+
+local animTexture = GUI.Texture(2048, 4096, 4096, 4096, "OWODWFALL_HITSURFACE_A0.TGA")
+
+animTexture.setFPS(10)
+animTexture.setBeginFrame(0)
+animTexture.setEndFrame(14)
+
+addEventHandler("onInit", function()
+{
+    texture.setVisible(true)
+    animTexture.setVisible(true)
+
+    setCursorVisible(true)
+})
+
+addEventHandler("GUI.onMouseIn", function(self)
+{
+    if (self != texture)
+        return
+
+    texture.setColor(255, 255, 0)
+    animTexture.stop()
+})
+
+addEventHandler("GUI.onMouseOut", function(self)
+{
+if (self != texture)
+return
+
+texture.setColor(255, 255, 255)
+animTexture.play()
+})
+
+addEventHandler("GUI.onMouseDown", function(self, btn)
+{
+if (self != texture)
+return
+
+texture.setColor(0, 255, 0)
+})
+
+addEventHandler("GUI.onMouseUp", function(self, btn)
+{
+if (self != texture)
+return
+
+if (self.isMouseAt())
+texture.setColor(255, 255, 0)
+else
+texture.setColor(255, 255, 255)
+})

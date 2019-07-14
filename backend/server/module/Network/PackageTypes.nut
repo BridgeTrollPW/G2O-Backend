@@ -1,3 +1,5 @@
 enum PackageTypes {
-    Login
+    PlayerLogin,
+    PlayerLoginError,
+    PlayerLoginSuccess
 }

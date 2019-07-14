@@ -1,8 +1,8 @@
-Network.Events <- {
-    tryPlayerLogin = "tryPlayerLogin"
+Network.Event <- {
+    PlayerLoginAttempt = "PlayerLoginAttempt"
 };
 
-foreach (event in Network.Events) {
+foreach (event in Network.Event) {
     addEvent(event);
 }
 

@@ -3,6 +3,8 @@ addEventHandler("onInit", Startup());
 local ConnectionDispatcher = Connection.Dispatcher();
 
 addEventHandler("onPlayerJoin", function(pid) {
+    ConnectionDispatcher.login(pid);
+    unspawnPlayer(pid);
 });
 addEventHandler("onPlayerDisconnect", function(pid, reason) {
     ConnectionDispatcher.clientLeave(pid, reason);

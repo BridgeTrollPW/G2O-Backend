@@ -2,9 +2,12 @@
     <import src="lib/gui-framework/gui.xml"/>
     <script src="lib/ResolutionUtils.nut" type="client"/>
 
-    <!-- Login -->
-    <script src="Login/Login.nut" type="client"/>
 
+
+    <import src="module/Network/module.xml"/>
+
+    <!-- Login -->
+    <script src="module/Login/Login.nut" type="client"/>
 
     <!-- Client Scripts -->
     <script src="playerlist.nut" type="client"/>

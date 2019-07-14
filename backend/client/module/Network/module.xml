@@ -1,0 +1,5 @@
+<server>
+    <script src="Events.nut" type="client" />
+    <script src="Packages.nut" type="client" />
+    <script src="PacketDispatcher.nut" type="client" />
+</server>
