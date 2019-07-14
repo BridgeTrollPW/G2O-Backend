@@ -1,5 +1,4 @@
 ### Server binary files ###
-
 data.bin
 
 *.exe
@@ -21,4 +20,5 @@ server.log
 
 desktop.ini
 
+backend/Config.nut.idea
 backend/Config.nut
