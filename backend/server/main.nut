@@ -17,3 +17,15 @@ addEventHandler("onPlayerCommand", function (pid, cmd, params) {
 addEventHandler("onPlayerMessage", function (pid, msg) {
     PlayerChat.Dispatcher.localChat(pid, msg);
 });
+
+addEventHandler("onPlayerDead", function (pid, kid) {
+    spawnPlayer(pid);
+});
+
+addEventHandler("onPlayerRespawn", function (pid, kid) {
+    spawnPlayer(pid);
+});
+
+addEventHandler("onPlayerUnconscious", function (pid, kid) {
+    spawnPlayer(pid);
+});

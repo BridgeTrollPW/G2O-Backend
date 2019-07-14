@@ -9,6 +9,10 @@
     <script src="Connection/Dispatcher.nut" type="server" />
     <!-- Connection -->
 
+    <!-- Network -->
+    <import stc="Network/module.xml" type="server"/>
+    <!-- Connection -->
+
     <!-- Startup -->
     <script src="Startup/Startup.nut" type="server" />
     <!-- Startup -->

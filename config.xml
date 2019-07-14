@@ -14,7 +14,7 @@
     <!-- Load Server Backend -->
     <import src="backend/main.xml"/>
     <module src="lib/MySQL.so" type="server"/>
-    <module src="lib/MySQL.dll" type="server"/>
+    <!--<module src="lib/MySQL.dll" type="server"/>-->
 
     <!-- Ids -->
     <items src="items.xml"/>

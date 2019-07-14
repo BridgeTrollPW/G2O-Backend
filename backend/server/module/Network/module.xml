@@ -1,0 +1,9 @@
+<server>
+    <script src="Namespace.nut" type="server" />
+    <script src="PacketDispatcher.nut" type="server" />
+    <script src="Events.nut" type="server" />
+    <script src="Packages.nut" type="server" />
+    <!-- Required for server and client -->
+    <script src="PackageTypes.nut" type="server" />
+    <script src="PackageTypes.nut" type="client" />
+</server>

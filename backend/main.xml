@@ -2,32 +2,6 @@
     <!-- Config -->
     <script src="Config.nut" type="server"/>
 
-    <!-- Exception Classes-->
-    <import src="server/model/Exception/exceptions.xml"/>
-    <!-- Exception Classes END-->
-
-    <!-- MODELS -->
-    <import src="server/model/models.xml"/>
-    <!-- MODELS END -->
-
-    <!-- UTILS -->
-    <import src="server/util/utils.xml"/>
-    <!-- UTILS END -->
-
-    <!-- SERVER SERVICES -->
-    <import src="server/service/services.xml"/>
-    <!-- SERVER SERVICES END -->
-
-    <!-- SERVER MODULES -->
-    <import src="server/module/modules.xml"/>
-    <!-- SERVER MODULES END -->
-
-    <!-- Main Loop + Event Listeners -->
-    <script src="server/main.nut" type="server"/>
-
-    <!-- Client Scripts -->
-    <script src="client/playerlist.nut" type="client"/>
-    <script src="client/chat.nut" type="client"/>
-    <script src="client/net.nut" type="client"/>
-    <!-- Client Scripts End -->
+    <import src="server/server.xml"/>
+    <import src="client/client.xml"/>
 </server>

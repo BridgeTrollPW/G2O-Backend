@@ -1,0 +1,24 @@
+<server>
+    <!-- Exception Classes-->
+    <import src="model/Exception/exceptions.xml"/>
+    <!-- Exception Classes END-->
+
+    <!-- MODELS -->
+    <import src="model/models.xml"/>
+    <!-- MODELS END -->
+
+    <!-- UTILS -->
+    <import src="util/utils.xml"/>
+    <!-- UTILS END -->
+
+    <!-- SERVER SERVICES -->
+    <import src="service/services.xml"/>
+    <!-- SERVER SERVICES END -->
+
+    <!-- SERVER MODULES -->
+    <import src="module/modules.xml"/>
+    <!-- SERVER MODULES END -->
+
+    <!-- Main Loop + Event Listeners -->
+    <script src="main.nut" type="server"/>
+</server>

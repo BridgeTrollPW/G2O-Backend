@@ -1,4 +1,6 @@
 <server>
     <script src="Client.nut" type="server"/>
     <script src="Player.nut" type="server"/>
+    <script src="Package.nut" type="server"/>
+    <script src="Package.nut" type="client"/>
 </server>
