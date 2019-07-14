@@ -1,5 +1,3 @@
-Connections <- {};
-
 class Connection.Dispatcher {
     auth = null;
     constructor() {
@@ -17,8 +15,8 @@ class Connection.Dispatcher {
     }
 
 // onPlayerJoin(pid) -> Event Callback
-    function clientJoin(pid) {
-        auth.login(pid);
+    function login(pid) {
+        //auth.login(pid);
     }
 
 // onPlayerDisconnect(pid, reason) -> Event Callback

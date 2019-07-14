@@ -3,14 +3,12 @@
     <script src="Administration/Commands.nut" type="server" />
     <!-- Administration -->
 
-    <!-- Connection -->
-    <script src="Connection/Namespace.nut" type="server" />
-    <script src="Connection/Authorisation.nut" type="server" />
-    <script src="Connection/Dispatcher.nut" type="server" />
-    <!-- Connection -->
-
     <!-- Network -->
-    <import stc="Network/module.xml" type="server"/>
+    <import src="Network/module.xml"/>
+    <!-- Network -->
+
+    <!-- Connection -->
+    <import src="Connection/module.xml"/>
     <!-- Connection -->
 
     <!-- Startup -->

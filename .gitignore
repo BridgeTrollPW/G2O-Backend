@@ -5,3 +5,5 @@ server.log
 G2O_Server.exe
 bans.xml
 data.bin
+config.xml
+/backend/Config.nut

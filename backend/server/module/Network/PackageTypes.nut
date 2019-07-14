@@ -1,4 +1,3 @@
-enum PackageType
-{
+enum PackageTypes {
     Login
 }

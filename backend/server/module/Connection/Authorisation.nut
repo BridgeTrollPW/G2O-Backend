@@ -5,11 +5,23 @@ class Connection.Authorisation {
         PlayerService = Service.PlayerService();
     }
 
-    function login(pid) {
+    function login(pid, name, password) {
         local awaitingClient = Client(pid);
         Logger.info("Connection received from " + awaitingClient);
 
         local player = PlayerService.getPlayerBySerial(awaitingClient.serial);
+        if(player == null)
+        {
+            Logger.info("Player not found in database");
+        } else
+        {
+            Logger.info("Player found in database");
+            spawnPlayer(pid);
+        }
+    }
+
+    function register()
+    {
         if (player == null) {
             Logger.info("New player detected, saving");
             PlayerService.createPlayer(awaitingClient.name, "1", awaitingClient.serial, awaitingClient.macAddress);

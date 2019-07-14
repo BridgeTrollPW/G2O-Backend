@@ -1,0 +1,6 @@
+<server>
+    <script src="Namespace.nut" type="server" />
+    <script src="Authorisation.nut" type="server" />
+    <script src="Dispatcher.nut" type="server" />
+    <script src="Events.nut" type="server" />
+</server>
