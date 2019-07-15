@@ -1,6 +1,4 @@
 <server>
-    <script src="Namespace.nut" type="server" />
-    <script src="Namespace.nut" type="client" />
     <!-- Required for server and client -->
     <script src="PackageTypes.nut" type="server" />
     <script src="PackageTypes.nut" type="client" />

@@ -1,0 +1,4 @@
+<server>
+    <import src="gui-framework/gui.xml"/>
+    <script src="ResolutionUtils.nut" type="client"/>
+</server>

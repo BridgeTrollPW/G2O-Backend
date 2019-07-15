@@ -1,0 +1,7 @@
+<server>
+    <import src="Network/module.xml"/>
+    <import src="Chat/module.xml"/>
+    <import src="Login/module.xml"/>
+    <import src="Netstats/module.xml"/>
+    <import src="PlayerList/module.xml"/>
+</server>

@@ -1,5 +1,4 @@
 <server>
-    <script src="Namespace.nut" type="server"/>
     <script src="MySQL.nut" type="server"/>
     <script src="PlayerService.nut" type="server"/>
 </server>

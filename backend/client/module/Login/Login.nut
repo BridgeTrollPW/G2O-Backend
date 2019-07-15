@@ -10,14 +10,14 @@ const PADDING_TOP = 80;
  *
  */
 local ETextWelcome = GUI.Draw(anx(PADDING_LEFT + 0), any(0),
-format(@"
+    format(@"
 Wellcome unknown traveler,
 some RP Server $$PLACEHOLDER$$.
 You shall not pass(without authentication)!",
-    getPlayerName(heroId)),
+        getPlayerName(heroId)),
     WLogin);
 ETextWelcome.setFont("FONT_DEFAULT.TGA");
-ETextWelcome.setColor(255,255,255);
+ETextWelcome.setColor(255, 255, 255);
 
 local ELabelNickname = GUI.Draw(anx(PADDING_LEFT + 0), any(PADDING_TOP + 10), "Nickname", WLogin);
 local EInputNickname = GUI.Input(anx(PADDING_LEFT + 0), any(PADDING_TOP + 30), anx(380), any(25), "DLG_CONVERSATION.TGA", "FONT_OLD_20_WHITE_HI.TGA", Input.Text, Align.Left, "", 0, WLogin);
@@ -50,17 +50,18 @@ addEventHandler("onInit", function() {
 
 });
 
-addEventHandler(Network.Event.PlayerLoginFailed, function(packet) {
+addEventHandler(Client.Network.Event.PlayerLoginFailed, function(packet) {
     print("Network.Event.PlayerLoginFailed");
     ELabelHelper.setVisible(true);
     ELabelHelper.setText(packet.readString());
-    ELabelHelper.setColor(255,0,0);
+    ELabelHelper.setColor(255, 0, 0);
+    EButtonLogin.setDisabled(false);
 });
-addEventHandler(Network.Event.PlayerLoginSuccess, function(packet) {
+addEventHandler(Client.Network.Event.PlayerLoginSuccess, function(packet) {
     print("Network.Event.PlayerLoginSuccess");
     ELabelHelper.setVisible(true);
     ELabelHelper.setText(packet.readString());
-    ELabelHelper.setColor(0,255,0);
+    ELabelHelper.setColor(0, 255, 0);
     Camera.setTargetPlayer(heroId);
     Camera.enableMovement(true);
     Camera.modeChangeEnabled = true;
@@ -73,40 +74,32 @@ addEventHandler("GUI.onClick", function(self) {
         /**
          * Do Username validation client side
          */
+            if (EInputNickname.getText().len() == 0 || EInputPassword.getText().len() == 0) {
+                ELabelHelper.setColor(255, 0, 0);
+                ELabelHelper.setText("Password/Nickname cannot be empty!");
+                break;
+            }
             packet <- Packet();
             packet.writeUInt8(PackageTypes.PlayerLogin);
-            local content = EInputNickname.getText() + "&" + sha256(EInputPassword.getText());
+            local
+            content = EInputNickname.getText() + "&" + sha256(EInputPassword.getText());
             print(content.len());
             packet.writeString(content);
             packet.send(RELIABLE_ORDERED); // sending packet with RELIABLE_ORDERED reliability to server
             print("Packet sent");
-            //EButtonLogin.setDisabled(true);
+            EButtonLogin.setDisabled(true);
             break;
     }
-})
+});
 
 addEventHandler("GUI.onMouseIn", function(self) {
     if (!(self instanceof GUI.Button)) return
 
     self.setColor(255, 0, 0)
-})
+});
 
 addEventHandler("GUI.onMouseOut", function(self) {
-    if (!(self instanceof GUI.Button)) return
+if (!(self instanceof GUI.Button)) return
 
-    self.setColor(255, 255, 255)
-})
-
-addEventHandler("GUI.onInputInsertLetter", function(element, text) {
+self.setColor(255, 255, 255)
 });
-
-addEventHandler("GUI.onInputRemoveLetter", function(element, letter) {
-});
-
-addEventHandler("GUI.onInputActive", function(element) {
-});
-
-addEventHandler("GUI.onInputDeactive", function(element) {
-});
-
-

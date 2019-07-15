@@ -1,7 +1,5 @@
 <server>
-    <!-- Config -->
-    <script src="Config.nut" type="server"/>
-
+    <import src="global/global.xml"/>
     <import src="server/server.xml"/>
     <import src="client/client.xml"/>
 </server>

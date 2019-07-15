@@ -222,4 +222,4 @@ local function messageHandler(pid, r, g, b, message)
 addEventHandler("onPlayerMessage", messageHandler);
 
 // Loaded
-print("chat.nut loaded...")
+print("Chat.nut loaded...")

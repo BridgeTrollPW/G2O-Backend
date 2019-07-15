@@ -1,0 +1,5 @@
+<server>
+    <script src="Config.nut" type="server"/>
+    <script src="ServerNamespaces.nut" type="server"/>
+    <script src="ClientNamespaces.nut" type="client"/>
+</server>

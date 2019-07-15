@@ -1,0 +1,3 @@
+<server>
+    <script src="Dispatcher.nut" type="server" />
+</server>

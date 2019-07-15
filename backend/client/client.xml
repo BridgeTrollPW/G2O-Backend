@@ -1,17 +1,4 @@
 <server>
-    <import src="lib/gui-framework/gui.xml"/>
-    <script src="lib/ResolutionUtils.nut" type="client"/>
-
-
-
-    <import src="module/Network/module.xml"/>
-
-    <!-- Login -->
-    <script src="module/Login/Login.nut" type="client"/>
-
-    <!-- Client Scripts -->
-    <script src="playerlist.nut" type="client"/>
-    <script src="chat.nut" type="client"/>
-    <script src="net.nut" type="client"/>
-    <!-- Client Scripts End -->
+    <import src="lib/libs.xml"/>
+    <import src="module/modules.xml"/>
 </server>

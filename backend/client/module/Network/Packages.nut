@@ -1,9 +1,9 @@
-Network.Packages <- [];
+Client.Network.Packages <- [];
 
-Network.Packages.append(Package(PackageTypes.PlayerLoginError, Network.Event.PlayerLoginFailed, function(packet) {
-    callEvent(Network.Event.PlayerLoginFailed, packet);
+Client.Network.Packages.append(Package(PackageTypes.PlayerLoginError, Client.Network.Event.PlayerLoginFailed, function(packet) {
+    callEvent(Client.Network.Event.PlayerLoginFailed, packet);
 }));
 
-Network.Packages.append(Package(PackageTypes.PlayerLoginSuccess, Network.Event.PlayerLoginSuccess, function(packet) {
-    callEvent(Network.Event.PlayerLoginSuccess, packet);
+Client.Network.Packages.append(Package(PackageTypes.PlayerLoginSuccess, Client.Network.Event.PlayerLoginSuccess, function(packet) {
+    callEvent(Client.Network.Event.PlayerLoginSuccess, packet);
 }));

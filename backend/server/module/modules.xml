@@ -1,6 +1,5 @@
 <server>
     <!-- Administration -->
-    <script src="Administration/Commands.nut" type="server" />
     <!-- Administration -->
 
     <!-- Network -->
@@ -12,11 +11,10 @@
     <!-- Connection -->
 
     <!-- Startup -->
-    <script src="Startup/Startup.nut" type="server" />
+    <import src="Startup/module.xml"/>
     <!-- Startup -->
 
     <!-- PlayerChat -->
-    <script src="PlayerChat/Namespace.nut" type="server" />
-    <script src="PlayerChat/Dispatcher.nut" type="server" />
+    <import src="PlayerChat/module.xml"/>
     <!-- PlayerChat -->
 </server>

@@ -1,0 +1,3 @@
+<server>
+    <script src="Chat.nut" type="client"/>
+</server>

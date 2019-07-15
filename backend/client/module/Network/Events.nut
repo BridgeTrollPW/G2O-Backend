@@ -1,12 +1,12 @@
-Network.Event <- {
+Client.Network.Event <- {
     PlayerLoginFailed = "PlayerLoginFailed",
     PlayerLoginSuccess = "PlayerLoginSuccess"
 };
 
-foreach (event in Network.Event) {
+foreach (event in Client.Network.Event) {
     addEvent(event);
 }
 
 addEventHandler("onPacket", function(packet) {
-    Network.PacketDispatcher.checkPacket(packet);
+    Client.Network.PacketDispatcher.checkPacket(packet);
 });

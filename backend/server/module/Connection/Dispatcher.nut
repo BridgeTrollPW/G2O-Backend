@@ -1,3 +1,5 @@
+Connections <- {}
+
 class Connection.Dispatcher {
     auth = null;
     constructor() {
