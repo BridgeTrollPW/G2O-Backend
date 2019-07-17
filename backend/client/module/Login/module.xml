@@ -1,4 +1,3 @@
 <server>
-    <script src="Login.nut" type="client"/>
     <script src="ui/LoginWindow.nut" type="client"/>
 </server>

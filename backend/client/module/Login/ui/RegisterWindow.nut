@@ -1,5 +1,5 @@
-local WLoginPos = ResolutionUtils.getCenterXY(400, 350);
-local WLogin = GUI.Window(anx(WLoginPos.x), any(WLoginPos.y), anx(400), any(350), "MENU_INGAME.TGA", true, true);
+local WRegisterPos = ResolutionUtils.getCenterXY(400, 350);
+local WRegister = GUI.Window(anx(WRegisterPos.x), any(WRegisterPos.y), anx(400), any(350), "MENU_INGAME.TGA", true, true);
 const PADDING_LEFT = 10;
 const PADDING_TOP = 80;
 /**
